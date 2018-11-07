@@ -1,0 +1,11 @@
+{{!-- each li item  --}}
+<li class="blue-grey darken-1">
+	<h5>{{sandwhich}}</h5>
+	</br>
+	{{!-- will choose which button will go along side the menu item depending on boolean value in the mysql database --}}
+	<button class="change-eaten waves-effect waves-light btn" data-id="{{id}}" data-new-eaten="{{devoured}}">
+		{{#if devoured}}Eat Me{{else}}Have Another?{{/if}}
+	</button>
+
+	<button class="delete-sandwhich waves-effect waves-light btn" data-id="{{this.id}}">Sold Out!</button>
+</li>

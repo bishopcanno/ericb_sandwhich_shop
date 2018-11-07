@@ -1,0 +1,39 @@
+li {
+  padding: 5px;
+  margin: 5px;
+  background: #faebd7;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.create-update-form {
+  padding: 5px;
+  margin: 5px;
+  background: aqua;
+}
+
+/* button styling */
+.btn{
+  background-color: gold;
+  color: black;
+}
+/* adds some margin on the bottom of the submit button */
+#add-sandwich{
+  margin-bottom: 10px;
+}
+/* Sticky Footer */
+.page-footer{
+  background-color: #42a5f5;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+  /* implement fonts */
+  font-family: 'Acme', sans-serif;
+}

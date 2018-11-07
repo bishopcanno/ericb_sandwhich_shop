@@ -1,0 +1,102 @@
+{{!-- welcome sign for shop --}}
+<div class="container">
+  <div class="row blue lighten-1 z-depth-3 center-align">
+    <div class="col s12">
+      <h1>Eric B's Sandwich Shop</h1>
+    </div>  
+  </div>
+
+{{!-- the menu, populated by the boolean in the mysql database  --}}
+  <div class="row center-align">
+    <div class="col s12">
+      <div class="card blue-grey darken-1 z-depth-5">
+        <div class="card-content white-text">
+          <h2>Menu:</h2>
+            {{!-- prints the menu for the items not "devoured" --}}
+            <ul>
+              {{#each sandwhiches}}
+                {{#unless devoured}}
+                  {{> sandwhich_partial_dir/sandwhich_block devoured=true}}
+                {{/unless}}
+              {{/each}}
+            </ul>
+
+            <h2>Sandwiches that you've eaten:</h2>
+            {{!-- prints the menu for the items the user has eaten --}}
+            <ul>
+              {{#each sandwhiches}}
+                {{#if devoured}}
+                  {{> sandwhich_partial_dir/sandwhich_block devoured=false}}
+                {{/if}}
+              {{/each}}
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{{!-- An attempt to get the menu to have a picture, had issues with implementation --}}
+
+  {{!-- <div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-image">
+          <img class="responsive-img"  src="../assets/images/1200px-Cheesesteak_heaven.jpg" alt="WTF">
+          <h2 class="card-title">Menu:</h2>
+        </div>
+        <div class="card-content">
+          <ul>
+            {{#each sandwhiches}}
+              {{#unless devoured}}
+                {{> sandwhich_partial_dir/sandwhich_block devoured=true}}
+              {{/unless}}
+            {{/each}}
+          </ul>
+
+          <h2 class="center-align">Sandwhiches that you've eaten:</h2>
+
+          <ul>
+            {{#each sandwhiches}}
+              {{#if devoured}}
+                {{> sandwhich_partial_dir/sandwhich_block devoured=false}}
+              {{/if}}
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div> --}}
+
+  {{!-- <div class="row blue lighten-1 z-depth-3 center-align">
+    
+  </div> --}}
+  
+  {{!-- form for custom sandwiches --}}
+  <div class="row blue-grey darken-1 z-depth-3">
+    <div class="col s12 center-align">
+      <h2 class="white-text">Create your own sandwich</h2>
+    </div>
+    <form class="col s12 custom-sandwich-form">
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Custom Sandwich" id="ca" type="text" class="validate">
+          <label for="ca"></label>
+        </div>
+      </div>
+      <p>
+        <label>
+          <input class="with-gap" name="devour" value="1" type="radio" />
+          <span>Eat it immediately?</span>
+        </label>
+      </p>  
+      <p>
+        <label>
+          <input class="with-gap" name="devour" value="0" type="radio" />
+          <span>Just add to menu?</span>
+        </label>
+      </p>  
+      <button class="waves-effect waves-light btn" id="add-sandwich" type="submit">Add Sandwhich</button>
+      </br>
+    </form>
+  </div>
+</div>
